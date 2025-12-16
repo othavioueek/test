@@ -6,7 +6,13 @@
   </head>
   <body>
       <h1 class="title">Hello World! </h1>
-      <p id="currentTime"></p>
-      <script src="script.js"></script>
+      <button id="openApp">Open App</button>
+
+      <script>
+      document.getElementById("openApp").addEventListener("click", () => {
+        window.location.href = "thrivebridge://sleep-logs";
+      });
+      </script>
+
   </body>
 </html>
