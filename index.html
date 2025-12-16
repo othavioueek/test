@@ -9,6 +9,11 @@
       <button onclick="openOAuthWindow()">Simulate Google OAuth</button>
 
 <script>
+  window.addEventListener('message', (event) => {
+    if (event.data.type === 'oauth_callback') {
+      alert(`User authenticated!\nEmail: ${event.data.payload.email}\nToken: ${event.data.payload.token}`);
+    }
+  });
   function openOAuthWindow() {
     // Simulate the opening of a Google OAuth window
     const oauthWindow = window.open("", "Google OAuth", "width=500, height=600");
@@ -51,13 +56,6 @@
       </html>
     `);
   }
-
-  // Listen for the message from the OAuth window
-  window.addEventListener('message', (event) => {
-    if (event.data.type === 'oauth_callback') {
-      alert(`User authenticated!\nEmail: ${event.data.payload.email}\nToken: ${event.data.payload.token}`);
-    }
-  });
 </script>
 
   </body>
